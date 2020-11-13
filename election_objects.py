@@ -1,5 +1,6 @@
 import csv
 import re
+import random
 
 class CountryData:
 	def __init__(self):
@@ -39,3 +40,9 @@ class State:
 	
 	def _setBasePrediction(self, bp):
 		self.basePrediction = bp
+	
+	def generateCandidateSelectionWithVariance(self):
+		marginOfError = 3.0
+		randomNoise = random.normalvariate(0.0, 1.0) / 2.0 * marginOfError
+		finalPrediction = self.basePrediction + randomNoise
+		return ('Trump', 'Biden')[finalPrediction >= 0]
