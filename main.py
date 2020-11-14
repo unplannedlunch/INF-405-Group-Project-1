@@ -2,6 +2,7 @@
 # Jonah Wolmark and D'Awnna Williams
 
 import election_objects
+from graphics_handling import GraphicsHandler
 
 # Variables to aggregate data
 country = election_objects.CountryData()
@@ -87,4 +88,7 @@ print('Trump got 270 EVs', trumpNationalWins, 'times.')
 print('The candidates tied', nationalTies, 'times.')
 
 
-# TODO: Display graphics (graphs, map, etc)
+# Graphics display code.
+
+handler = GraphicsHandler(stateWinners, bidenEVTotals, trumpEVTotals, bidenNationalWins, trumpNationalWins)
+handler.display()
